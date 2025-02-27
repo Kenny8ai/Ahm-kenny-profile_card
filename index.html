@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .profile-card {
+            width: 320px;
+            height: 430px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+            padding: 20px;
+            transition: 0.3s;
+            position: relative;
+        }
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .profile-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid red;
+            transition: transform 0.5s;
+        }
+        .profile-card img:hover {
+            transform: scale(1.1);
+        }
+        .profile-card h2 {
+            margin: 15px 0 5px;
+            font-size: 22px;
+            color: black;
+        }
+        .profile-card p {
+            font-size: 14px;
+            color: gray;
+        }
+        .buttons {
+            margin-top: 15px;
+        }
+        .buttons a {
+            display: inline-block;
+            text-decoration: none;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            width: 120px;
+            transition: 0.3s;
+        }
+        .portfolio {
+            background: black;
+            color: white;
+        }
+        .portfolio:hover {
+            background: red;
+        }
+        .landing {
+            background: red;
+            color: white;
+        }
+        .landing:hover {
+            background: black;
+        }
+        .social-icons {
+            margin-top: 15px;
+        }
+        .social-icons a {
+            display: inline-block;
+            margin: 8px;
+            color: black;
+            font-size: 20px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            background: #f4f4f4;
+            transition: all 0.3s ease-in-out;
+        }
+        .social-icons a:hover {
+            background: red;
+            color: white;
+            transform: scale(1.1);
+        }
+        .bio { 
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <img src="1.jpg" alt="Profile Image">
+        <h2>Ahm Kenny</h2>
+        <p class="pro">Web Developer | Graphic Designer</p>
+        
+        <div class="buttons">
+            <a href="Portfolio.html" class="portfolio">Portfolio</a>
+            <a href="landingpage.html" class="landing">Landing Page</a>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://wa.me/+2348106973341"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://x.com/MasTerKenny112?t=OWiapqh9HPTUmG1UMcgcTg&s=09"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.instagram.com/kennydeloner?igsh=MXBxYnF6cnZmandnNg=="><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/kingsley-tom-69b7b4315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+
+        <div class="bio">
+            <p class="bio">I'm Kenny, a Graphic Designer with 2 years of experience and a budding Web Developer. I create visually compelling designs and functional websites to enhance digital experience.
+</p>
+        </div>
+    </div>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Find the element to animate
+  var proElement = document.querySelector('.pro');
+  if (proElement) {
+    // Create a container to hold the ticker
+    var tickerContainer = document.createElement('div');
+    tickerContainer.className = 'ticker-container';
+    
+    // Apply flex styling to center the content and hide overflow
+    tickerContainer.style.display = 'flex';
+    tickerContainer.style.justifyContent = 'center';
+    tickerContainer.style.alignItems = 'center';
+    tickerContainer.style.overflow = 'hidden';
+    tickerContainer.style.position = 'relative';
+    tickerContainer.style.width = '100%';
+    tickerContainer.style.height = '50px'; // Adjust height as needed
+    
+    // Wrap the existing element in the ticker container
+    proElement.parentNode.insertBefore(tickerContainer, proElement);
+    tickerContainer.appendChild(proElement);
+    
+    // Style the paragraph for a smooth ticker effect
+    proElement.style.whiteSpace = 'nowrap';
+    proElement.style.position = 'absolute';
+    proElement.style.animation = 'ticker 10s linear infinite';
+    
+    // Inject keyframes for the ticker animation into the document head
+    var style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes ticker {
+        0% { transform: translateX(130%); }
+        100% { transform: translateX(-130%); }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+});
+</script>
+
+    
+</body>
+</html>

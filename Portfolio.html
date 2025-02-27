@@ -1,0 +1,301 @@
+<!DOCTYPE html> <!-- Declare the document type as HTML5 -->
+<html lang="en"> <!-- Begin HTML document with language set to English -->
+<head> <!-- Begin head section -->
+  <meta charset="UTF-8" /> <!-- Specify character encoding as UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Ensure proper scaling on all devices -->
+  <title>Tom Kingsley Marizu (Kenny) Portfolio</title> <!-- Set the page title including your name and alias -->
+  <style> <!-- Begin internal CSS styles -->
+    html { /* Begin HTML element styling */
+      scroll-behavior: smooth; /* Enable smooth scrolling for in-page links */
+    } /* End HTML element styling */
+    /* Base Styles */
+    body { /* Begin body styling */
+      font-family: Arial, sans-serif; /* Set default font for body text */
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
+      background-color: #fff; /* Set background color to white */
+      color: #000; /* Set default text color to black */
+    } /* End body styling */
+    header { /* Begin header styling */
+      background-color: #000; /* Set header background color to black */
+      color: #fff; /* Set header text color to white */
+      padding: 20px; /* Add padding around header content */
+      text-align: center; /* Center the header text */
+      position: sticky; /* Make header stick to top during scrolling */
+      top: 0; /* Position at the very top */
+      z-index: 1000; /* Ensure header is above other elements */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Add subtle shadow for a professional look */
+    } /* End header styling */
+    nav ul { /* Begin navigation unordered list styling */
+      list-style: none; /* Remove default list bullets */
+      padding: 0; /* Remove default padding */
+      margin: 0; /* Remove default margin */
+      display: flex; /* Use flexbox layout for navigation */
+      justify-content: center; /* Center the navigation items horizontally */
+    } /* End navigation unordered list styling */
+    nav ul li { /* Begin navigation list item styling */
+      margin: 0 15px; /* Add horizontal margin between list items */
+    } /* End navigation list item styling */
+    nav ul li a { /* Begin navigation link styling */
+      color: #fff; /* Set link text color to white */
+      text-decoration: none; /* Remove underline from links */
+      font-weight: bold; /* Make link text bold */
+      transition: color 0.3s ease; /* Smooth transition for hover color change */
+    } /* End navigation link styling */
+    nav ul li a:hover { /* Begin hover state styling for navigation links */
+      color: #ff0000; /* Change link color to red on hover */
+    } /* End hover state styling */
+    .container { /* Begin main container styling */
+      max-width: 1000px; /* Set maximum width of container */
+      margin: 20px auto; /* Center the container and add vertical margin */
+      padding: 0 20px; /* Add horizontal padding within the container */
+    } /* End main container styling */
+    /* Portfolio Items */
+    .portfolio-item { /* Begin styling for individual portfolio items */
+      background-color: #fff; /* Set background color to white */
+      padding: 15px; /* Add padding inside the portfolio item */
+      margin-bottom: 20px; /* Add margin below each portfolio item */
+      border: 2px solid #ff0000; /* Add a red border for accent */
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
+      cursor: pointer; /* Change cursor to pointer to indicate interactivity */
+    } /* End portfolio item styling */
+    .portfolio-item:hover { /* Begin hover effect for portfolio items */
+      transform: scale(1.02); /* Slightly enlarge the item on hover */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a shadow effect on hover */
+    } /* End hover effect for portfolio items */
+    .portfolio-item img { /* Begin styling for images within portfolio items */
+      max-width: 100%; /* Make images responsive by limiting width to 100% of their container */
+      height: auto; /* Maintain image aspect ratio */
+      display: block; /* Display images as block-level elements */
+      margin-bottom: 10px; /* Add margin below images */
+    } /* End portfolio item image styling */
+    /* About & Contact Sections */
+    .about, .contact { /* Begin styling for both about and contact sections */
+      background-color: #fff; /* Set background color to white */
+      padding: 15px; /* Add padding within these sections */
+      margin-bottom: 20px; /* Add margin below these sections */
+      border: 2px solid #ff0000; /* Add a red border for consistency */
+    } /* End about & contact sections styling */
+    /* Contact Form */
+    form label { /* Begin styling for form labels */
+      display: block; /* Display each label as a block element */
+      margin-top: 10px; /* Add margin above labels */
+    } /* End form label styling */
+    form input, form textarea { /* Begin styling for inputs and textarea in the form */
+      width: 100%; /* Make inputs and textarea span the full width of their container */
+      padding: 8px; /* Add padding inside inputs and textarea */
+      margin-top: 5px; /* Add margin above inputs and textarea */
+      box-sizing: border-box; /* Include padding and border in the element's total width */
+      border: 1px solid #ccc; /* Set a light gray border */
+      border-radius: 4px; /* Slightly round the corners */
+    } /* End form input and textarea styling */
+    form button { /* Begin styling for form button */
+      margin-top: 10px; /* Add margin above the button */
+      padding: 10px 15px; /* Set padding for the button */
+      background-color: #ff0000; /* Set button background color to red */
+      color: #fff; /* Set button text color to white */
+      border: none; /* Remove default border from the button */
+      border-radius: 4px; /* Round the button corners */
+      cursor: pointer; /* Change cursor to pointer when hovering over the button */
+      transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    } /* End form button styling */
+    form button:hover { /* Begin styling for button hover state */
+      background-color: #cc0000; /* Darken the red on hover */
+    } /* End button hover styling */
+    footer { /* Begin footer styling */
+      text-align: center; /* Center the footer text */
+      padding: 20px; /* Add padding around footer content */
+      background-color: #000; /* Set footer background color to black */
+      color: #fff; /* Set footer text color to white */
+    } /* End footer styling */
+    /* Modal Styles */
+    #modal { /* Begin modal container styling */
+      display: none; /* Hide modal by default */
+      position: fixed; /* Position modal fixed relative to viewport */
+      top: 0; /* Position at top */
+      left: 0; /* Position at left */
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+      justify-content: center; /* Center modal content horizontally */
+      align-items: center; /* Center modal content vertically */
+      z-index: 2000; /* Ensure modal is above other elements */
+    } /* End modal container styling */
+    .modal-content { /* Begin modal content styling */
+      position: relative; /* Position relative for the close button */
+      max-width: 90%; /* Limit modal content width */
+      max-height: 80%; /* Limit modal content height */
+    } /* End modal content styling */
+    .modal-content img { /* Begin styling for image inside modal */
+      width: 100%; /* Make modal image fill its container */
+      height: auto; /* Maintain aspect ratio */
+      display: block; /* Display as block element */
+      border: 4px solid #ff0000; /* Add red border to modal image */
+    } /* End modal image styling */
+    .close { /* Begin styling for modal close button */
+      position: absolute; /* Position close button absolutely inside modal content */
+      top: 10px; /* 10px from top */
+      right: 10px; /* 10px from right */
+      color: #fff; /* Set close button color to white */
+      font-size: 30px; /* Increase font size for visibility */
+      font-weight: bold; /* Bold text */
+      cursor: pointer; /* Change cursor to pointer */
+    } /* End modal close button styling */
+    /* Scroll to Top Button Styles */
+    #scrollToTop { /* Begin scroll-to-top button styling */
+      position: fixed; /* Fix position relative to viewport */
+      bottom: 20px; /* 20px from bottom */
+      right: 20px; /* 20px from right */
+      background-color: #ff0000; /* Set background color to red */
+      color: #fff; /* Set text color to white */
+      padding: 10px 15px; /* Add padding */
+      border: none; /* Remove border */
+      border-radius: 4px; /* Round the corners */
+      cursor: pointer; /* Change cursor to pointer */
+      display: none; /* Hide button by default */
+      z-index: 1500; /* Ensure it is above other elements */
+      transition: opacity 0.3s ease; /* Smooth transition for showing/hiding */
+    } /* End scroll-to-top button styling */
+    /* Responsive Styles for smaller screens */
+    @media (max-width: 600px) { /* Begin media query for devices with a maximum width of 600px */
+      nav ul { /* Responsive styling for the navigation unordered list */
+        flex-direction: column; /* Stack navigation items vertically */
+      } /* End responsive navigation unordered list styling */
+      nav ul li { /* Responsive styling for navigation list items */
+        margin: 10px 0; /* Adjust margins for vertical spacing */
+      } /* End responsive navigation list item styling */
+      .container { /* Responsive styling for the main container */
+        padding: 0 10px; /* Reduce horizontal padding on smaller screens */
+      } /* End responsive container styling */
+    } /* End media query */
+  </style> <!-- End internal CSS styles -->
+</head> <!-- End head section -->
+<body> <!-- Begin body section -->
+  <header> <!-- Begin header section -->
+    <h1>Tom Kingsley Marizu Portfolio</h1> <!-- Main title with your name and alias -->
+    <nav> <!-- Begin navigation section -->
+      <ul> <!-- Begin unordered list for navigation links -->
+        <li><a href="#portfolio">Portfolio</a></li> <!-- Navigation link to Portfolio section -->
+        <li><a href="#about">About</a></li> <!-- Navigation link to About section -->
+        <li><a href="#contact">Contact</a></li> <!-- Navigation link to Contact section -->
+        <li><a href="index.html">Profile Card</a></li> 
+      </ul> <!-- End unordered list for navigation links -->
+    </nav> <!-- End navigation section -->
+  </header> <!-- End header section -->
+
+  <div class="container"> <!-- Begin main container for page content -->
+    <!-- Portfolio Section -->
+    <section id="portfolio"> <!-- Begin Portfolio section with unique id "portfolio" -->
+      <h2>My Work</h2> <!-- Section heading for the portfolio -->
+      <div class="portfolio-item"> <!-- Begin first portfolio item container -->
+        <h3>Project One</h3> <!-- Project One title -->
+        <img class="portfolio-img" src="Port.jpg" alt="Screenshot of Project One" width="150" height="100" /> <!-- Portfolio image with class for modal trigger -->
+        <p> <strong>My Portfolio:</strong> This is one of my major projects.</p> <!-- Description of Project One -->
+      </div> <!-- End first portfolio item container -->
+      <div class="portfolio-item"> <!-- Begin second portfolio item container -->
+        <h3>Project Two</h3> <!-- Project Two title -->
+        <img class="portfolio-img" src="Land.jpg" alt="Screenshot of Project Two" /> <!-- Portfolio image with class for modal trigger -->
+        <p><strong>Landing Page:</strong> This is another major project, and I stated it as project number Two.</p> <!-- Description of Project Two -->
+      </div> <!-- End second portfolio item container -->
+      <!-- Additional portfolio items can be added here following the same structure -->
+    </section> <!-- End Portfolio section -->
+
+    <!-- About Section -->
+    <section id="about"> <!-- Begin About section with unique id "about" -->
+      <h2>About Me</h2> <!-- Section heading for the About section -->
+      <div class="about"> <!-- Begin container for About content -->
+        <p>
+          Hello! My name is Tom Kingsley Marizu, officially known as Kenny. I am a professional a <strong>Web Developer</strong> with expertise in <strong>Front-end web development</strong>. I am passionate about creating innovative solutions and delivering high-quality work to my clients.
+        </p> <!-- About me description text including your basic details -->
+      </div> <!-- End About content container -->
+    </section> <!-- End About section -->
+
+    <!-- Contact Section -->
+    <section id="contact"> <!-- Begin Contact section with unique id "contact" -->
+      <h2>Contact</h2> <!-- Section heading for the Contact section -->
+      <div class="contact"> <!-- Begin container for Contact content -->
+        <form id="contactForm"> <!-- Begin contact form with unique id "contactForm" -->
+          <label for="name">Name:</label> <!-- Label for name input field -->
+          <input type="text" id="name" name="name" required /> <!-- Text input for user's name with required attribute -->
+          <label for="email">Email:</label> <!-- Label for email input field -->
+          <input type="email" id="email" name="email" required /> <!-- Email input for user's email with required attribute -->
+          <label for="message">Message:</label> <!-- Label for message textarea -->
+          <textarea id="message" name="message" rows="4" required></textarea> <!-- Textarea for user's message with 4 rows and required attribute -->
+          <button type="submit">Send</button> <!-- Submit button to send the form data -->
+        </form> <!-- End contact form -->
+      </div> <!-- End Contact content container -->
+    </section> <!-- End Contact section -->
+  </div> <!-- End main container for page content -->
+
+  <!-- Modal for displaying portfolio images -->
+  <div id="modal"> <!-- Begin modal container -->
+    <div class="modal-content"> <!-- Begin modal content container -->
+      <span class="close">&times;</span> <!-- Close button for the modal -->
+      <img id="modal-img" src="" alt="Expanded Portfolio Image" /> <!-- Image element for modal content -->
+    </div> <!-- End modal content container -->
+  </div> <!-- End modal container -->
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollToTop">Top</button> <!-- Button that scrolls page to the top -->
+
+  <footer> <!-- Begin footer section -->
+    <p>&copy; 2025 Tom Kingsley Marizu Portfolio. All rights reserved.</p> <!-- Footer text with copyright notice -->
+  </footer> <!-- End footer section -->
+
+  <script> <!-- Begin internal JavaScript -->
+    // Get all portfolio images that will trigger the modal
+    const portfolioImages = document.querySelectorAll('.portfolio-img'); // Select all images with class 'portfolio-img'
+    // Get the modal element
+    const modal = document.getElementById('modal'); // Select the modal container
+    // Get the image element inside the modal
+    const modalImg = document.getElementById('modal-img'); // Select the modal image element
+    // Get the close button for the modal
+    const closeModal = document.querySelector('.close'); // Select the modal close button
+
+    // Add click event listener to each portfolio image
+    portfolioImages.forEach(function(img) { // For each portfolio image
+      img.addEventListener('click', function() { // When the image is clicked
+        modal.style.display = 'flex'; // Display the modal as a flex container
+        modalImg.src = this.src; // Set the modal image source to the clicked image source
+      }); // End click event listener for an image
+    }); // End forEach loop over portfolio images
+
+    // Add click event listener to the close button of the modal
+    closeModal.addEventListener('click', function() { // When the close button is clicked
+      modal.style.display = 'none'; // Hide the modal
+    }); // End click event listener for the close button
+
+    // Add click event listener to modal to close if clicking outside the modal content
+    modal.addEventListener('click', function(event) { // When anywhere in the modal is clicked
+      if (event.target === modal) { // Check if the click is on the modal container (outside the modal content)
+        modal.style.display = 'none'; // Hide the modal
+      } // End if condition
+    }); // End click event listener for modal background
+
+    // Get the scroll-to-top button element
+    const scrollToTopBtn = document.getElementById('scrollToTop'); // Select the scroll-to-top button
+
+    // Function to check scroll position and display the button if needed
+    window.addEventListener('scroll', function() { // On window scroll event
+      if (window.pageYOffset > 300) { // If scrolled down more than 300px
+        scrollToTopBtn.style.display = 'block'; // Display the scroll-to-top button
+      } else { // Otherwise
+        scrollToTopBtn.style.display = 'none'; // Hide the scroll-to-top button
+      } // End if condition
+    }); // End window scroll event listener
+
+    // Add click event listener to the scroll-to-top button
+    scrollToTopBtn.addEventListener('click', function() { // When the button is clicked
+      window.scrollTo({ top: 0, behavior: 'smooth' }); // Smoothly scroll to the top of the page
+    }); // End click event listener for scroll-to-top button
+
+    // Add event listener for contact form submission
+    document.getElementById('contactForm').addEventListener('submit', function(event) { // When the form is submitted
+      event.preventDefault(); // Prevent default form submission behavior (page reload)
+      const name = document.getElementById('name').value; // Retrieve the value of the name input field
+      alert('Thank you for your message, ' + name + '! We will get back to you soon.'); // Display confirmation alert with user's name
+      this.reset(); // Reset the contact form fields
+    }); // End form submission event listener
+  </script> <!-- End internal JavaScript -->
+</body> <!-- End body section -->
+</html> <!-- End HTML document -->
